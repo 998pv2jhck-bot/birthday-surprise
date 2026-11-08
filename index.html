@@ -5,118 +5,365 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#17130f">
-<title>Happy Birthday</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<title>HAPPY BIRTHDAY - Ayano Yoshinaga</title>
+
 <style>
-:root{--bg:#17130f;--gold:#e8c994;--gold2:#b18b4b;--cream:#fff5e5;--muted:#c8b99e}
+:root{
+  --bg:#17130f;
+  --panel:#21190f;
+  --gold:#e8c994;
+  --gold2:#b18b4b;
+  --cream:#fff5e5;
+  --muted:#c8b99e;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Yu Mincho",serif;min-height:100vh}
+body{
+  margin:0;background:var(--bg);color:var(--cream);
+  font-family:Georgia,"Yu Mincho",serif;min-height:100vh
+}
 button,input{font:inherit}
 button{cursor:pointer}
 .screen{min-height:100svh;display:grid;place-items:center;padding:24px}
 .hidden{display:none!important}
-.gate{width:min(100%,620px);text-align:center;position:relative}
+
+.gate{width:min(100%,760px);text-align:center;position:relative;padding:24px 12px}
+.gate .eyebrow{letter-spacing:.28em}
+.gate h1{
+  font-size:clamp(2.5rem,9vw,5.2rem);
+  letter-spacing:.08em;margin:12px 0 0;
+  text-shadow:0 0 22px #dba84b88
+}
+.signature{
+  font-family:"Parisienne","Segoe Script","Brush Script MT",cursive;
+  font-size:clamp(3rem,9vw,5.4rem);line-height:1.15;
+  color:#f2d49a;margin:0 auto 18px;
+  text-shadow:0 0 18px #dba84b88;white-space:nowrap
+}
+.gate-divider{
+  width:min(82%,520px);height:1px;margin:18px auto 20px;
+  background:linear-gradient(90deg,transparent,#b18b4b,#f4d99e,#b18b4b,transparent)
+}
+.password-guide{color:var(--gold);font-size:clamp(1rem,3.4vw,1.35rem);letter-spacing:.04em;margin:0 0 12px}
+.password-note{color:var(--muted);font-style:italic;letter-spacing:.08em;font-size:.95rem;margin:10px 0 0}
 .eyebrow{letter-spacing:.32em;color:var(--gold);font-size:.72rem;text-transform:uppercase}
-h1{font-family:"Cinzel",Georgia,serif;font-weight:400;letter-spacing:.12em;color:var(--gold);font-size:clamp(2rem,8vw,4.2rem);margin:18px 0 0}
-.signature{font-family:"Allura","Brush Script MT",cursive;color:#f1cf91;font-size:clamp(3.2rem,10vw,5.6rem);line-height:1.1;margin:0 0 20px;text-shadow:0 0 22px #d6a75a44}
-.subtitle{color:var(--muted);letter-spacing:.12em;font-size:.9rem}
-.door-scene{height:min(42vh,330px);min-height:220px;position:relative;margin:24px auto;perspective:1000px;max-width:440px}
-.door-frame{position:absolute;inset:0;border:7px solid #76542a;box-shadow:0 0 0 2px #c39a55,0 15px 45px #000;background:radial-gradient(ellipse at center,#f2c879 0,#6e4218 28%,#160e09 70%);overflow:hidden}
-.door{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(90deg,transparent 0 24px,#0003 25px,#d3a55a22 27px,transparent 29px),linear-gradient(90deg,#21140d,#5b3519 45%,#2a180d);border:5px ridge #a77b3b;box-shadow:inset 0 0 22px #000;z-index:2;transition:transform 1.8s cubic-bezier(.2,.75,.15,1)}
-.door:before{content:"";position:absolute;inset:12% 12%;border:4px double #b98a45;box-shadow:inset 0 0 0 5px #24150c,inset 0 0 0 8px #9b7137}
-.door:after{content:"";position:absolute;top:48%;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff1b9,#a87527 60%,#38200b);box-shadow:0 0 12px #e8c994}
+
+.door-scene{
+  height:min(55vh,420px);min-height:270px;position:relative;
+  margin:28px auto 24px;perspective:1000px;max-width:440px
+}
+.door-frame{
+  position:absolute;inset:0;border:7px solid #76542a;
+  box-shadow:0 0 0 2px #c39a55,0 15px 45px #000;
+  background:radial-gradient(ellipse at center,#f2c879 0,#6e4218 28%,#160e09 70%);
+  overflow:hidden
+}
+.door{
+  position:absolute;top:0;bottom:0;width:50%;
+  background:
+  repeating-linear-gradient(90deg,transparent 0 24px,#0003 25px,#d3a55a22 27px,transparent 29px),
+  linear-gradient(90deg,#21140d,#5b3519 45%,#2a180d);
+  border:5px ridge #a77b3b;box-shadow:inset 0 0 22px #000;
+  z-index:2;transition:transform 1.8s cubic-bezier(.2,.75,.15,1)
+}
+.door:before{
+  content:"";position:absolute;inset:12% 12%;
+  border:4px double #b98a45;
+  box-shadow:inset 0 0 0 5px #24150c,inset 0 0 0 8px #9b7137
+}
+.door:after{
+  content:"";position:absolute;top:48%;width:12px;height:12px;
+  border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#fff1b9,#a87527 60%,#38200b);
+  box-shadow:0 0 12px #e8c994
+}
 .door.left{left:0;transform-origin:left center}
 .door.right{right:0;transform-origin:right center}
 .door.left:after{right:12px}
 .door.right:after{left:12px}
 .door-scene.open .door.left{transform:rotateY(-112deg)}
 .door-scene.open .door.right{transform:rotateY(112deg)}
-.password-title{color:var(--gold);font-size:1.05rem;margin:12px 0;letter-spacing:.04em}
-.gate-form{display:flex;gap:9px;max-width:350px;margin:12px auto 0}
-.gate-form input{min-width:0;flex:1;background:#2a2119;border:1px solid #98713b;border-radius:4px;color:white;padding:14px;text-align:center;letter-spacing:.3em;outline:none}
-.gold-btn{border:1px solid #d3ad6c;background:linear-gradient(135deg,#8c642e,#c49a56);color:#160f08;padding:13px 20px;border-radius:4px;letter-spacing:.1em;box-shadow:0 5px 18px #0005}
+
+.gate-form{display:flex;gap:9px;max-width:350px;margin:20px auto 0}
+.gate-form input{
+  min-width:0;flex:1;background:#2a2119;border:1px solid #98713b;
+  border-radius:4px;color:white;padding:14px;text-align:center;
+  letter-spacing:.15em;outline:none
+}
+.gold-btn{
+  border:1px solid #d3ad6c;
+  background:linear-gradient(135deg,#8c642e,#c49a56);
+  color:#160f08;padding:13px 20px;border-radius:4px;
+  letter-spacing:.1em;box-shadow:0 5px 18px #0005
+}
 .gold-btn:hover{filter:brightness(1.12)}
 .error{min-height:1.4em;color:#f0a7a0;font-size:.85rem}
-.room{min-height:100svh;padding:48px 18px 70px;background:radial-gradient(ellipse at 50% 0,#463019 0,#21190f 42%,#17130f 85%)}
-.room-inner{width:min(100%,900px);margin:auto;text-align:center}
-.room h2{font-size:clamp(2rem,7vw,3.5rem);font-weight:400;letter-spacing:.12em;color:var(--gold);margin:10px 0}
-.intro{color:var(--muted);margin:0 0 36px;letter-spacing:.08em}
-.gifts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:680px;margin:auto}
-.gift-card{border:1px solid #70532d;background:#241b12aa;border-radius:8px;padding:18px 10px 16px;color:var(--gold);transition:transform .25s,background .25s}
+
+/* メインルーム */
+.room{
+  min-height:100svh;padding:48px 18px 70px;
+  background:
+  radial-gradient(ellipse at 50% 0,#634522 0,#302013 35%,#17130f 85%);
+  position:relative;overflow:hidden
+}
+.room-inner{width:min(100%,900px);margin:auto;text-align:center;position:relative;z-index:2}
+
+/* 金色の光 */
+.room:before{
+  content:"";position:absolute;top:-30%;left:50%;
+  width:90vw;height:90vw;max-width:850px;max-height:850px;
+  transform:translateX(-50%) scale(.4);
+  background:radial-gradient(circle,#e8c99435 0%,#c18b3c18 35%,transparent 70%);
+  opacity:0;pointer-events:none
+}
+.room.active:before{animation:goldGlow 3s ease-out forwards}
+@keyframes goldGlow{
+  0%{opacity:0;transform:translateX(-50%) scale(.35)}
+  45%{opacity:1}
+  100%{opacity:.65;transform:translateX(-50%) scale(1)}
+}
+
+/* 光の粒 */
+.sparkles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.sparkles span{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:#ffe5a6;box-shadow:0 0 12px 3px #e8c994;
+  opacity:0;animation:floatSpark 6s linear infinite
+}
+.sparkles span:nth-child(1){left:10%;top:90%;animation-delay:0s}
+.sparkles span:nth-child(2){left:25%;top:85%;animation-delay:1s}
+.sparkles span:nth-child(3){left:40%;top:95%;animation-delay:2s}
+.sparkles span:nth-child(4){left:60%;top:90%;animation-delay:3s}
+.sparkles span:nth-child(5){left:75%;top:95%;animation-delay:1.5s}
+.sparkles span:nth-child(6){left:90%;top:85%;animation-delay:2.5s}
+.sparkles span:nth-child(7){left:18%;top:70%;animation-delay:3.5s}
+.sparkles span:nth-child(8){left:82%;top:75%;animation-delay:4s}
+@keyframes floatSpark{
+  0%{transform:translateY(0) scale(.4);opacity:0}
+  15%{opacity:.9}
+  80%{opacity:.7}
+  100%{transform:translateY(-65vh) scale(1.5);opacity:0}
+}
+
+/* 名前と案内 */
+.welcome{
+  padding:24px 10px 10px;
+  opacity:0;transform:translateY(20px)
+}
+.room.active .welcome{animation:welcomeIn 1.5s .5s ease forwards}
+@keyframes welcomeIn{
+  to{opacity:1;transform:translateY(0)}
+}
+.welcome-label{
+  color:var(--gold);font-size:.75rem;letter-spacing:.28em;
+  margin-bottom:12px
+}
+.welcome-name{
+  font-family:"Parisienne","Segoe Script","Brush Script MT",cursive;
+  font-size:clamp(3rem,10vw,5.8rem);
+  line-height:1.2;color:#f2d49a;margin:0;
+  text-shadow:0 0 20px #dba84b88,0 0 45px #dba84b44
+}
+.welcome-line{
+  width:min(70%,400px);height:1px;margin:22px auto;
+  background:linear-gradient(90deg,transparent,#b18b4b,#f4d99e,#b18b4b,transparent)
+}
+.choose-title{
+  color:#f5dda5;letter-spacing:.12em;font-size:clamp(1.2rem,4vw,1.8rem);
+  margin:0 0 10px
+}
+.choose-guide{
+  color:#e4d5b7;letter-spacing:.08em;font-size:1rem;
+  margin:0 0 38px
+}
+.room h2{
+  font-size:clamp(2rem,7vw,3.5rem);
+  font-weight:400;letter-spacing:.12em;color:var(--gold);margin:10px 0
+}
+
+/* プレゼント */
+.gifts{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;max-width:680px;margin:auto
+}
+.gift-card{
+  border:1px solid #70532d;background:#241b12aa;
+  border-radius:8px;padding:18px 10px 16px;color:var(--gold);
+  transition:transform .25s,background .25s;
+  opacity:0;transform:translateY(25px)
+}
+.room.active .gift-card{animation:giftIn .8s ease forwards}
+.room.active .gift-card:nth-child(1){animation-delay:2.4s}
+.room.active .gift-card:nth-child(2){animation-delay:2.65s}
+.room.active .gift-card:nth-child(3){animation-delay:2.9s}
+.room.active .gift-card:nth-child(4){animation-delay:3.15s}
+@keyframes giftIn{to{opacity:1;transform:translateY(0)}}
 .gift-card:hover{transform:translateY(-5px);background:#342515}
 .gift-art{height:130px;display:grid;place-items:center;position:relative}
-.box-art{width:105px;height:75px;position:relative;background:linear-gradient(110deg,#3b1b16,#7d3024 48%,#3c1712);border:2px solid #d0a65d;box-shadow:0 13px 20px #0008}
-.box-art:before{content:"";position:absolute;left:40px;top:-14px;width:22px;height:89px;background:linear-gradient(90deg,#b58b43,#f0d18b,#9a6a2c)}
-.box-art:after{content:"";position:absolute;left:31px;top:-19px;width:40px;height:22px;border:6px solid #d8b56f;border-radius:50% 50% 0 50%;transform:rotate(20deg);box-shadow:22px 0 0 -6px #d8b56f}
+.box-art{
+  width:105px;height:75px;position:relative;
+  background:linear-gradient(110deg,#3b1b16,#7d3024 48%,#3c1712);
+  border:2px solid #d0a65d;box-shadow:0 13px 20px #0008
+}
+.box-art:before{
+  content:"";position:absolute;left:40px;top:-14px;width:22px;height:89px;
+  background:linear-gradient(90deg,#b58b43,#f0d18b,#9a6a2c)
+}
+.box-art:after{
+  content:"";position:absolute;left:31px;top:-19px;width:40px;height:22px;
+  border:6px solid #d8b56f;border-radius:50% 50% 0 50%;
+  transform:rotate(20deg);box-shadow:22px 0 0 -6px #d8b56f
+}
 .gift-card:nth-child(2n) .box-art{background:linear-gradient(110deg,#17212b,#344b58 50%,#17212b)}
 .gift-card:nth-child(3n) .box-art{background:linear-gradient(110deg,#4a3517,#94713a 50%,#4a3517)}
 .gift-label{letter-spacing:.22em;font-size:.8rem;margin-top:12px}
 .gift-hint{font-size:.72rem;color:#bca982;margin-top:6px}
 .footer-note{color:#8f8069;font-size:.75rem;margin-top:42px}
-.modal{position:fixed;inset:0;background:#080604ef;z-index:10;display:grid;place-items:center;padding:18px;overflow:auto}
-.modal-card{width:min(100%,700px);max-height:92svh;overflow:auto;background:linear-gradient(145deg,#302316,#17110c);border:1px solid #b18b4b;border-radius:10px;padding:18px;box-shadow:0 25px 80px #000}
+
+/* プレゼントを開いた画面 */
+.modal{
+  position:fixed;inset:0;background:#080604eF;z-index:10;
+  display:grid;place-items:center;padding:18px;overflow:auto
+}
+.modal-card{
+  width:min(100%,700px);max-height:92svh;overflow:auto;
+  background:linear-gradient(145deg,#302316,#17110c);
+  border:1px solid #b18b4b;border-radius:10px;
+  padding:18px;box-shadow:0 25px 80px #000
+}
 .modal-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .modal-title{color:var(--gold);letter-spacing:.15em}
-.close{background:transparent;border:1px solid #8e6a38;color:var(--gold);border-radius:50%;width:38px;height:38px;font-size:1.2rem}
+.close{
+  background:transparent;border:1px solid #8e6a38;color:var(--gold);
+  border-radius:50%;width:38px;height:38px;font-size:1.2rem
+}
 .reveal-stage{min-height:180px;display:grid;place-items:center;position:relative;margin:14px 0}
-.reveal-box{width:130px;height:88px;position:relative;background:linear-gradient(110deg,#401a14,#9b4b35,#401a14);border:2px solid #d9b56e;animation:pop .65s ease both;box-shadow:0 0 40px #e5b75c44}
-.reveal-box:before{content:"";position:absolute;left:50px;top:-15px;width:24px;height:103px;background:linear-gradient(90deg,#b58b43,#f0d18b,#9a6a2c)}
-.reveal-box:after{content:"";position:absolute;left:35px;top:-23px;width:45px;height:24px;border:6px solid #d8b56f;border-radius:50% 50% 0 50%;transform:rotate(20deg)}
-@keyframes pop{0%{transform:scale(.45) rotate(-8deg);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.reveal-box{
+  width:130px;height:88px;position:relative;
+  background:linear-gradient(110deg,#401a14,#9b4b35,#401a14);
+  border:2px solid #d9b56e;animation:pop .65s ease both;
+  box-shadow:0 0 40px #e5b75c44
+}
+.reveal-box:before{
+  content:"";position:absolute;left:50px;top:-15px;width:24px;height:103px;
+  background:linear-gradient(90deg,#b58b43,#f0d18b,#9a6a2c)
+}
+.reveal-box:after{
+  content:"";position:absolute;left:35px;top:-23px;width:45px;height:24px;
+  border:6px solid #d8b56f;border-radius:50% 50% 0 50%;transform:rotate(20deg)
+}
+@keyframes pop{
+  0%{transform:scale(.45) rotate(-8deg);opacity:0}
+  70%{transform:scale(1.08)}
+  100%{transform:scale(1);opacity:1}
+}
 .media-content{animation:fadeUp .7s .25s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.media-content img,.media-content video{display:block;width:100%;max-height:55svh;object-fit:contain;border-radius:6px;background:#090706;margin:12px auto}
+.media-content img,.media-content video{
+  display:block;width:100%;max-height:55svh;object-fit:contain;
+  border-radius:6px;background:#090706;margin:12px auto
+}
 .message{color:#f4e5ca;line-height:1.9;white-space:pre-line;text-align:center;padding:12px}
-.media-placeholder{min-height:210px;border:1px dashed #a9854d;border-radius:8px;background:radial-gradient(ellipse at center,#4a351f,#17110c);display:grid;place-items:center;text-align:center;padding:24px;color:#e8c994;line-height:1.9;margin:12px auto}
+.media-placeholder{
+  min-height:210px;border:1px dashed #a9854d;border-radius:8px;
+  background:radial-gradient(ellipse at center,#4a351f,#17110c);
+  display:grid;place-items:center;text-align:center;padding:24px;
+  color:#e8c994;line-height:1.9;margin:12px auto
+}
 .media-placeholder strong{display:block;letter-spacing:.16em;font-size:1.05rem}
 .media-placeholder small{display:block;color:#c8b99e;margin-top:8px}
 .modal.video-mode{padding:0;background:#000}
-.modal.video-mode .modal-card{width:100%;height:100%;max-height:none;border:0;border-radius:0;padding:12px;background:#000;display:flex;flex-direction:column;overflow:hidden}
-.modal.video-mode .modal-top{flex:0 0 auto}
+.modal.video-mode .modal-card{
+  width:100vw;height:100svh;max-height:none;border:0;border-radius:0;
+  padding:14px;background:#000;display:flex;flex-direction:column
+}
 .modal.video-mode .reveal-stage{display:none}
-.modal.video-mode .media-content{flex:1;min-height:0;display:grid;place-items:center}
-.modal.video-mode .media-content video{width:100%;height:100%;max-height:none;object-fit:contain;margin:0;border-radius:0}
-.modal.video-mode .message{display:none}
-@media(max-width:520px){.gate-form{flex-direction:column}.gifts{gap:12px}.gift-card{padding:12px 6px}.gift-art{height:112px}.box-art{transform:scale(.85)}.room{padding-top:38px}}
+.modal.video-mode .media-content{
+  flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center
+}
+.modal.video-mode .media-content video{
+  width:100%;height:100%;max-height:none;object-fit:contain;
+  border-radius:0;margin:0 auto;background:#000
+}
+.modal.video-mode .media-content .message{flex:0 0 auto;margin:4px 0}
+
+@media(max-width:520px){
+  .gate-form{flex-direction:column}
+  .gifts{gap:12px}
+  .gift-card{padding:12px 6px}
+  .gift-art{height:112px}
+  .box-art{transform:scale(.85)}
+  .room{padding-top:38px}
+}
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
 <section class="screen" id="gate">
   <div class="gate">
     <div class="eyebrow">A SPECIAL DAY JUST FOR YOU</div>
     <h1>HAPPY BIRTHDAY</h1>
-    <div class="signature">Ayano Yoshinaga</div>
-    <p class="password-title">Enter Your Birthday (MMDD)</p>
-    <div class="door-scene" id="doorScene" aria-label="Antique double doors">
-      <div class="door-frame"></div><div class="door left"></div><div class="door right"></div>
-    </div>
+    <p class="signature">Ayano Yoshinaga</p>
+    <div class="gate-divider"></div>
+    <p class="password-guide">Enter Your Birthday (MMDD)</p>
+
     <form class="gate-form" id="passwordForm">
-      <input id="passwordInput" type="password" inputmode="numeric" maxlength="4" placeholder="MMDD" autocomplete="off" aria-label="Birthday in four digits">
+      <input id="passwordInput" type="password" placeholder="MMDD"
+        inputmode="numeric" maxlength="4" autocomplete="off"
+        aria-label="誕生日4桁">
       <button class="gold-btn" type="submit">UNLOCK</button>
     </form>
+
+    <p class="password-note">4-digit date</p>
     <div class="error" id="error" aria-live="polite"></div>
-    <p class="subtitle" style="font-size:.7rem">4-digit date</p>
+
+    <div class="door-scene" id="doorScene" aria-label="A pair of antique double doors">
+      <div class="door-frame"></div>
+      <div class="door left"></div>
+      <div class="door right"></div>
+    </div>
   </div>
 </section>
+
 <main class="room hidden" id="room">
+  <div class="sparkles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
   <div class="room-inner">
-    <div class="eyebrow">Today is all about you</div>
-    <h2>HAPPY BIRTHDAY</h2>
-    <p class="intro">Choose a present and open your memories.</p>
+    <div class="welcome">
+      <div class="welcome-label">WELCOME TO YOUR SPECIAL DAY</div>
+      <h2 class="welcome-name">Ayano Yoshinaga</h2>
+      <div class="welcome-line"></div>
+      <h3 class="choose-title">Choose your present</h3>
+      <p class="choose-guide">好きなプレゼントを開けてね 🎁</p>
+    </div>
+
     <div class="gifts" id="gifts"></div>
     <p class="footer-note">MADE WITH LOVE · JUST FOR YOU</p>
   </div>
 </main>
-<div class="modal hidden" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+<div class="modal hidden" id="giftModal" role="dialog"
+  aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-card">
-    <div class="modal-top"><div class="modal-title" id="modalTitle">GIFT 01</div><button class="close" id="closeModal" aria-label="Close">×</button></div>
-    <div class="reveal-stage"><div class="reveal-box" id="revealBox"></div></div>
+    <div class="modal-top">
+      <div class="modal-title" id="modalTitle">GIFT 01</div>
+      <button class="close" id="closeModal" aria-label="閉じる">×</button>
+    </div>
+    <div class="reveal-stage">
+      <div class="reveal-box" id="revealBox"></div>
+    </div>
     <div class="media-content" id="mediaContent"></div>
   </div>
 </div>
+
 <script>
 const CONFIG = {
   password: "1116",
@@ -124,91 +371,163 @@ const CONFIG = {
     { title: "GIFT 01", type: "image", src: "media/photo01.jpg", caption: "最初の思い出" },
     { title: "GIFT 02", type: "video", src: "media/movie01.mp4", caption: "一緒に過ごした時間" },
     { title: "GIFT 03", type: "image", src: "media/photo02.jpg", caption: "忘れたくない瞬間" },
-    { title: "GIFT 04", type: "message", message: "お誕生日おめでとう！\nいつもありがとう。\nこれからもたくさんの思い出を作ろうね。", caption: "最後のメッセージ" }
+    {
+      title: "GIFT 04",
+      type: "message",
+      message: "お誕生日おめでとう！\nいつもありがとう。\nこれからもたくさんの思い出を作ろうね。",
+      caption: "最後のメッセージ"
+    }
   ]
 };
-const gate=document.getElementById("gate");
-const room=document.getElementById("room");
-const doorScene=document.getElementById("doorScene");
-const form=document.getElementById("passwordForm");
-const input=document.getElementById("passwordInput");
-const error=document.getElementById("error");
-const modal=document.getElementById("giftModal");
-const mediaContent=document.getElementById("mediaContent");
-function renderGifts(){
-  const grid=document.getElementById("gifts");
-  grid.innerHTML="";
-  CONFIG.gifts.forEach((gift,index)=>{
-    const button=document.createElement("button");
-    button.className="gift-card";
-    button.type="button";
-    button.innerHTML=`<div class="gift-art"><div class="box-art"></div></div><div class="gift-label">${gift.title}</div><div class="gift-hint">TAP TO OPEN</div>`;
-    button.addEventListener("click",()=>openGift(index));
+
+const gate = document.getElementById("gate");
+const room = document.getElementById("room");
+const doorScene = document.getElementById("doorScene");
+const form = document.getElementById("passwordForm");
+const input = document.getElementById("passwordInput");
+const error = document.getElementById("error");
+const modal = document.getElementById("giftModal");
+const mediaContent = document.getElementById("mediaContent");
+
+function renderGifts() {
+  const grid = document.getElementById("gifts");
+  grid.innerHTML = "";
+
+  CONFIG.gifts.forEach((gift, index) => {
+    const button = document.createElement("button");
+    button.className = "gift-card";
+    button.type = "button";
+
+    button.innerHTML = `
+      <div class="gift-art"><div class="box-art"></div></div>
+      <div class="gift-label">${gift.title}</div>
+      <div class="gift-hint">TAP TO OPEN</div>
+    `;
+
+    button.addEventListener("click", () => openGift(index));
     grid.appendChild(button);
   });
 }
-form.addEventListener("submit",event=>{
+
+form.addEventListener("submit", (event) => {
   event.preventDefault();
-  if(input.value===CONFIG.password){
-    error.textContent="";
+
+  if (input.value === CONFIG.password) {
+    error.textContent = "";
     doorScene.classList.add("open");
-    setTimeout(()=>{
+
+    setTimeout(() => {
       gate.classList.add("hidden");
       room.classList.remove("hidden");
       renderGifts();
-      window.scrollTo(0,0);
-    },1550);
-  }else{
-    error.textContent="PASSWORD IS INCORRECT. TRY AGAIN.";
+
+      requestAnimationFrame(() => {
+        room.classList.add("active");
+      });
+
+      window.scrollTo(0, 0);
+    }, 1550);
+
+  } else {
+    error.textContent = "PASSWORD IS INCORRECT. TRY AGAIN.";
     input.select();
   }
 });
-function openGift(index){
-  const gift=CONFIG.gifts[index];
-  document.getElementById("modalTitle").textContent=gift.title;
-  mediaContent.innerHTML="";
-  modal.classList.toggle("video-mode",gift.type==="video");
-  if(gift.type==="image"){
-    const img=document.createElement("img");
-    img.src=gift.src;img.alt=gift.caption||"思い出の写真";
-    img.onerror=()=>showPlaceholder("PHOTO","ここに写真が入ります。あとから追加できます。");
+
+function openGift(index) {
+  const gift = CONFIG.gifts[index];
+
+  modal.classList.toggle("video-mode", gift.type === "video");
+  document.getElementById("modalTitle").textContent = gift.title;
+  mediaContent.innerHTML = "";
+
+  if (gift.type === "image") {
+    const img = document.createElement("img");
+    img.src = gift.src;
+    img.alt = gift.caption || "思い出の写真";
+
+    img.onerror = () => {
+      showPlaceholder("PHOTO", "ここに写真が入ります。あとから追加できます。");
+    };
+
     mediaContent.appendChild(img);
-  }else if(gift.type==="video"){
-    const video=document.createElement("video");
-    video.src=gift.src;video.controls=true;video.playsInline=true;video.autoplay=true;
-    video.preload="metadata";
-    video.onerror=()=>showPlaceholder("MOVIE","ここに動画が入ります。あとから追加できます。");
+
+  } else if (gift.type === "video") {
+    const video = document.createElement("video");
+    video.src = gift.src;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+
+    video.onerror = () => {
+      showPlaceholder("MOVIE", "ここに動画が入ります。あとから追加できます。");
+    };
+
     mediaContent.appendChild(video);
-  }else if(gift.type==="message"){
-    const p=document.createElement("p");
-    p.className="message";p.textContent=gift.message||"";
+
+  } else if (gift.type === "placeholder") {
+    showPlaceholder(
+      gift.placeholderType || "MEMORY",
+      gift.message || "写真や動画はあとから追加できます。"
+    );
+
+  } else if (gift.type === "message") {
+    const p = document.createElement("p");
+    p.className = "message";
+    p.textContent = gift.message || "";
     mediaContent.appendChild(p);
   }
-  if(gift.caption&&gift.type!=="video"){
-    const caption=document.createElement("p");
-    caption.className="message";caption.textContent=gift.caption;
+
+  if (gift.caption) {
+    const caption = document.createElement("p");
+    caption.className = "message";
+    caption.textContent = gift.caption;
     mediaContent.appendChild(caption);
   }
+
   modal.classList.remove("hidden");
-  const box=document.getElementById("revealBox");
-  box.style.animation="none";void box.offsetWidth;box.style.animation="";
+
+  const revealBox = document.getElementById("revealBox");
+  revealBox.style.animation = "none";
+  void revealBox.offsetWidth;
+  revealBox.style.animation = "";
 }
-function showPlaceholder(label,description){
-  const placeholder=document.createElement("div");
-  placeholder.className="media-placeholder";
-  const strong=document.createElement("strong");strong.textContent=label;
-  const small=document.createElement("small");small.textContent=description;
-  placeholder.append(strong,small);mediaContent.appendChild(placeholder);
+
+function showPlaceholder(label, description) {
+  const placeholder = document.createElement("div");
+  placeholder.className = "media-placeholder";
+
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+
+  const small = document.createElement("small");
+  small.textContent = description;
+
+  placeholder.append(strong, small);
+  mediaContent.appendChild(placeholder);
 }
-function closeGift(){
-  const video=mediaContent.querySelector("video");
-  if(video)video.pause();
+
+function closeGift() {
+  const video = mediaContent.querySelector("video");
+
+  if (video) video.pause();
+
   modal.classList.add("hidden");
   modal.classList.remove("video-mode");
 }
-document.getElementById("closeModal").addEventListener("click",closeGift);
-modal.addEventListener("click",event=>{if(event.target===modal)closeGift()});
-document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!modal.classList.contains("hidden"))closeGift()});
+
+document.getElementById("closeModal").addEventListener("click", closeGift);
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) closeGift();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeGift();
+  }
+});
 </script>
+
 </body>
 </html>
