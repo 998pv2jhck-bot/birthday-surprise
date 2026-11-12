@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -189,7 +188,7 @@ button{cursor:pointer}
 .gift-card{
   border:1px solid #70532d;background:#241b12aa;
   border-radius:8px;padding:18px 10px 16px;color:var(--gold);
-  transition:transform .25s,background .25s;
+  transition:transform .25s,background .25s,filter .4s;
   opacity:0;transform:translateY(25px)
 }
 .room.active .gift-card{animation:giftIn .8s ease forwards}
@@ -199,6 +198,25 @@ button{cursor:pointer}
 .room.active .gift-card:nth-child(4){animation-delay:3.15s}
 @keyframes giftIn{to{opacity:1;transform:translateY(0)}}
 .gift-card:hover{transform:translateY(-5px);background:#342515}
+
+/* 順番に開く:まだ開けられないプレゼント */
+.gift-card.locked{filter:grayscale(.8) brightness(.55);cursor:not-allowed}
+.gift-card.locked:hover{transform:translateY(0);background:#241b12aa}
+/* 次に開けるプレゼントを光らせる */
+.gift-card.next{border-color:#e8c994;box-shadow:0 0 22px #e8c99466}
+/* 開けたプレゼント */
+.gift-card.opened{opacity:.85}
+
+/* 鍵付きプレゼントを押したときのゆれ */
+.gift-card.shake{animation:shake .45s ease}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-7px)}
+  40%{transform:translateX(7px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+}
+
 .gift-art{height:130px;display:grid;place-items:center;position:relative}
 .box-art{
   width:105px;height:75px;position:relative;
@@ -389,6 +407,23 @@ const error = document.getElementById("error");
 const modal = document.getElementById("giftModal");
 const mediaContent = document.getElementById("mediaContent");
 
+// いま開けられる一番先のプレゼント(0 = GIFT 01)
+let nextIndex = 0;
+
+// 鍵・開封済みなどの見た目を更新する
+function updateGiftStates() {
+  document.querySelectorAll(".gift-card").forEach((card, i) => {
+    card.classList.toggle("locked", i > nextIndex);
+    card.classList.toggle("next", i === nextIndex);
+    card.classList.toggle("opened", i < nextIndex);
+
+    const hint = card.querySelector(".gift-hint");
+    if (i > nextIndex) hint.textContent = "LOCKED 🔒";
+    else if (i < nextIndex) hint.textContent = "OPENED ✓";
+    else hint.textContent = "TAP TO OPEN";
+  });
+}
+
 function renderGifts() {
   const grid = document.getElementById("gifts");
   grid.innerHTML = "";
@@ -404,9 +439,11 @@ function renderGifts() {
       <div class="gift-hint">TAP TO OPEN</div>
     `;
 
-    button.addEventListener("click", () => openGift(index));
+    button.addEventListener("click", () => openGift(index, button));
     grid.appendChild(button);
   });
+
+  updateGiftStates();
 }
 
 form.addEventListener("submit", (event) => {
@@ -434,7 +471,23 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-function openGift(index) {
+function openGift(index, button) {
+  // まだ開けられない順番なら、ゆらして終わる
+  if (index > nextIndex) {
+    if (button) {
+      button.classList.remove("shake");
+      void button.offsetWidth; // アニメーションをやり直すため
+      button.classList.add("shake");
+    }
+    return;
+  }
+
+  // 一番先のプレゼントを開いたら、次を解放する
+  if (index === nextIndex) {
+    nextIndex++;
+    updateGiftStates();
+  }
+
   const gift = CONFIG.gifts[index];
 
   modal.classList.toggle("video-mode", gift.type === "video");
